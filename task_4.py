@@ -23,3 +23,34 @@ print('Задача 4. Число наоборот')
 # Число наоборот: 321
 # 
 # Кстати, нули, которые мы убрали, называются ведущими.
+
+
+# def rev_num(num):
+#     print("Число наоборот: ", end="")
+#     while num > 0:
+#         print(num % 10, end="")
+#         num //= 10
+#     print()
+
+def rev_num(num):
+    print("Число наоборот: ", end="")
+    zero = True
+
+    while num > 0:
+        if zero and num % 10 == 0:
+            pass
+        else:
+            print(num % 10, end="")
+            zero = False
+        num //= 10
+
+    print()
+
+
+while True:
+    number = int(input("Введите число: "))
+    if number != 0:
+        rev_num(number)
+    else:
+        print("Программа завершена!")
+        break
