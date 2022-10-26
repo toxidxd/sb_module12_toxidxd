@@ -15,7 +15,28 @@ print('Задача 5. Текстовый редактор')
 # Пример:
 # Введите текст: 100 лет в обед
 # Какую цифру ищем? 0
-# Какую букву ищём? л
+# Какую букву ищем? л
 # 
 # Количество цифр 0: 2
 # Количество букв л: 1
+
+
+def text_crawler(txt, num, let):
+    num_count = 0
+    let_count = 0
+
+    for char in txt:
+        if char == num:
+            num_count += 1
+        elif char == let:
+            let_count += 1
+
+    print(f"Количество цифр {num}: {num_count}")
+    print(f"Количество букв {let}: {let_count}")
+
+
+text = input("Введите тексе: ")
+number = input("Какую цифру искать? ")
+letter = input("Какую букву искать? ")
+
+text_crawler(text, number, letter)
