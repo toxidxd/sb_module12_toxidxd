@@ -3,7 +3,6 @@ print('Задача 8. НОД')
 
 
 def gcd_finder(small_num, large_num):
-    print('gcd_finder')
     if large_num % small_num != 0:
         remains = large_num % small_num
         new_large_num = small_num
