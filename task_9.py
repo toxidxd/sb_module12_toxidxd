@@ -1,3 +1,5 @@
+import random
+
 print('Задача 9. Недоделка')
 
 # Вы пришли на работу в контору по разработке игр,
@@ -22,13 +24,69 @@ print('Задача 9. Недоделка')
 # программа запрашивает у пользователя число до тех пор, пока он его не отгадает.
 
 
-def rock_paper_scissors():
-    #Здесь будет игра "Камень, ножницы, бумага"
+def rock_scissors_paper():
+    pc_choice = random.randint(1, 3)  # 1 - rock  2 - scissors  3 - paper
+    # есть и более аккуратный вариант со списками и random.choise, но мы его еще не проходили
+    if pc_choice == 1:
+        pc_choice = 'камень'
+    elif pc_choice == 2:
+        pc_choice = 'ножницы'
+    elif pc_choice == 3:
+        pc_choice = 'бумагу'
+
+    user_choice = input("Камень, ножницы, бумага? ---> ")
+    print(f"Компьютер выбрал {pc_choice}")
+
+    if user_choice == 'камень':
+        if pc_choice == 'бумагу':
+            print('Вы проиграли =(')
+        elif pc_choice == 'ножницы':
+            print('Вы выиграли =)')
+        else:
+            print("Победила дружба!")
+
+    if user_choice == 'ножницы':
+        if pc_choice == 'камень':
+            print('Вы проиграли =(')
+        elif pc_choice == 'бумагу':
+            print('Вы выиграли =)')
+        else:
+            print("Победила дружба!")
+
+    if user_choice == 'бумага':
+        if pc_choice == 'ножницы':
+            print('Вы проиграли =(')
+        elif pc_choice == 'камень':
+            print('Вы выиграли =)')
+        else:
+            print("Победила дружба!")
+
 
 def guess_the_number():
-    #Здесь будет игра "Угадай число"
+    taken_number = random.randint(1, 10)
+    trying = 0
 
-def mainMenu():
-    #Здесь главное меню игры
+    while True:
+        trying += 1
+        number = int(input("Введите число от 1 до 10: "))
 
-mainMenu()
+        if number > taken_number:
+            print("Число больше, чем нужно. Попробуйте ещё раз!")
+        elif number < taken_number:
+            print("Число меньше, чем нужно. Попробуйте ещё раз!")
+        elif number == taken_number:
+            print(f"Вы угадали! Число попыток: {trying}")
+            break
+
+
+def main_menu():
+    game_choice = int(input("Выберите игру:\n1 - Камень, ножницы, бумага\n2 - Угадай число\n---> "))
+    if game_choice == 1:
+        rock_scissors_paper()
+    elif game_choice == 2:
+        guess_the_number()
+    else:
+        print("Неверные ввод!")
+
+
+main_menu()
